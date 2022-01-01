@@ -1,0 +1,36 @@
+.about {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--medium-gray);
+  width: 100%;
+  min-width: 600px;
+}
+
+.about-container .header {
+  font-size: clamp(20px, 1.2vw, 25px);
+  letter-spacing: 1px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--darker-blue);
+}
+
+.about-container .body {
+  width: 30%;
+  line-height: 22px;
+  font-size: clamp(12px, 1vw, 15px);
+}
+
+@media only screen and (max-width: 1125px) {
+  .about-container {
+    overflow-y: scroll;
+    height: auto;
+  }
+}

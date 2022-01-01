@@ -1,3 +1,12 @@
+:root {
+  --light-green: #b8e6bf;
+  --darker-green: #3caea3;
+  --darker-blue: #01263a;
+  --light-blue: #f0f6fc;
+  --medium-gray: #50575e;
+  --light-gray: #f0f0f1;
+}
+
 .App {
   height: 100%;
   width: 100%;

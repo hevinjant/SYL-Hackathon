@@ -41,6 +41,7 @@
   color: white;
   font-size: clamp(15px, 1.2vw, 20px);
   text-align: center;
+  padding-bottom: 10px;
 }
 
 .login .login-container form input:focus {

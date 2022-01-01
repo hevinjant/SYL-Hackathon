@@ -1,0 +1,54 @@
+.month-item {
+  height: 300px;
+  width: 300px;
+}
+
+.month-item .month-item-container {
+  background-color: var(--light-blue);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 250px;
+  padding: 5px;
+  color: var(--darker-blue);
+  font-weight: 400;
+}
+
+.month-item .month-item-container .header {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.month-item-container img {
+  height: 250px;
+  width: 250px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-fit: cover;
+}
+
+.month-item-container form label {
+  display: none;
+}
+
+.month-item-container form input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--darker-blue);
+  color: var(--darker-blue);
+  text-align: center;
+}
+
+.month-item-container form input:focus {
+  outline: none;
+}
+
+.month-item-container form input::placeholder {
+  font-size: (12px, 1vw, 15px);
+}
+
+.month-item-container .goal-display {
+  color: var(--darker-blue);
+}
