@@ -83,7 +83,7 @@ function Home() {
       (doc) => {
         const source = doc.metadata.hasPendingWrites ? "Local" : "Server";
         console.log("listened:", doc.data());
-        setGoals(doc.data());
+        setGoals(doc.data().goals);
       }
     );
 
@@ -96,8 +96,14 @@ function Home() {
     try {
       const docRef = doc(database, "users", userPhoneNumber);
       const docSnap = await getDoc(docRef);
-      const goals = docSnap.data();
-      return goals;
+      let snapshots;
+      if (docSnap.exists()) {
+        snapshots = docSnap.data();
+        console.log("docSnap", docSnap.data());
+      } else {
+        snapshots = {};
+      }
+      return snapshots.goals;
     } catch (error) {
       console.log(error);
       return false;
@@ -116,12 +122,22 @@ function Home() {
         <div className="home-right-container">
           {months.map((month, key) => {
             const monthName = month.name.toLowerCase();
+            var monthGoal;
+            console.log("GOALS", goals);
+            if (goals == null || Object.keys(goals).length === 0) {
+              monthGoal = {};
+            } else {
+              monthGoal = goals[monthName];
+              if (monthGoal == null) {
+                monthGoal = {};
+              }
+            }
             return (
               <MonthItem
                 key={key}
                 monthName={month.name}
                 monthImg={month.img}
-                monthGoal={goals[monthName]}
+                monthGoal={monthGoal}
               />
             );
           })}

@@ -1,4 +1,4 @@
-.login {
+.welcome {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -10,7 +10,7 @@
   background-size: cover;
 }
 
-.login .login-container {
+.welcome .welcome-container {
   background-color: black;
   opacity: 85%;
   display: flex;
@@ -22,11 +22,15 @@
   border-radius: 20px;
 }
 
-.login .login-container h1 {
+.welcome .welcome-container p {
   color: white;
+  text-align: center;
+  line-height: 25px;
+  letter-spacing: 1px;
+  font-weight: 700;
 }
 
-.login .login-container form {
+.welcome .welcome-container form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +40,7 @@
   font-size: clamp(15px, 1.2vw, 20px);
 }
 
-.login .login-container form input {
+.welcome .welcome-container form input {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid white;
@@ -49,11 +53,11 @@
   padding-bottom: 10px;
 }
 
-.login .login-container form input:focus {
+.welcome .welcome-container form input:focus {
   outline: none;
 }
 
-.login .continue-button {
+.welcome .login-button {
   margin-top: 30px;
   height: 35px;
   width: 150px;
@@ -65,6 +69,10 @@
   border-radius: 5px;
 }
 
-.login .continue-button:hover {
+.welcome #hide .login-button {
+  display: none;
+}
+
+.welcome .login-button:hover {
   background-color: var(--medium-blue);
 }

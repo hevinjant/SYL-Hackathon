@@ -1,28 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import "../styles/Stake.css";
 
-function Stake() {
-  const [amount, setAmount] = useState(0);
-
+function Stake({ amount, handleAmount }) {
   const handleChange = (event) => {
-    setAmount(event.target.value);
+    handleAmount(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setAmount("");
   };
 
   return (
     <div className="stake">
       <div className="stake-container">
         <form onSubmit={handleSubmit}>
-          <label>Enter the amount</label>
           <input
             type="text"
             value={amount}
             onChange={handleChange}
-            placeholder="Enter your amount"
+            placeholder="Enter the amount to stake"
           ></input>
         </form>
       </div>

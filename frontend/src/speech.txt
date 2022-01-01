@@ -9,7 +9,7 @@ To use the app, users just need to provide their phone numbers, and stake some N
 
 Development process:
 We build the front-end of the web application using React JavaScript.
-We are using Firebase Firestorm to store and manage our data as we think that Firebase
+We are using Firebase Firestore to store and manage our data as we think that Firebase
 is very user friendly. Firebase has a very straight forward and easy to use API to be used with React JavaScript.
 We achieve realtime updates on our data by using Firebase realtime document listener, onSnapshot().
 

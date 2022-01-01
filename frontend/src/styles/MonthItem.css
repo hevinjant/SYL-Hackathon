@@ -33,12 +33,21 @@
   display: none;
 }
 
+.month-item-container p {
+  text-align: center;
+  padding: 5px;
+  line-height: 20px;
+  color: var(--darker-blue);
+}
+
 .month-item-container form input {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid var(--darker-blue);
   color: var(--darker-blue);
   text-align: center;
+  font-size: clamp(12px, 1vw, 15px);
+  margin-bottom: 5px;
 }
 
 .month-item-container form input:focus {
@@ -50,5 +59,32 @@
 }
 
 .month-item-container .goal-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: var(--darker-blue);
+}
+
+.month-item-container .goal-display .complete {
+  height: 30px;
+  width: 100px;
+  font-size: clamp(12px, 1vw, 15px);
+  font-weight: 700;
+  color: white;
+  background-color: var(--darker-blue);
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.month-item-container .goal-display .complete:hover {
+  background-color: var(--medium-blue);
+}
+
+.month-item #completed {
+  background-color: var(--darker-green);
+}
+
+.month-item #completed .complete {
+  display: none;
 }

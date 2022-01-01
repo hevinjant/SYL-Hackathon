@@ -1,23 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FireworksBg from "../assets/fireworks2.jpg";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import database from "../Firebase";
-import "../styles/Login.css";
 import { useNavigate } from "react-router-dom";
+import "../styles/Login.css";
 
 const init_goal = {
-  january: null,
-  february: null,
-  march: null,
-  april: null,
-  may: null,
-  june: null,
-  july: null,
-  august: null,
-  september: null,
-  october: null,
-  november: null,
-  december: null,
+  goals: {
+    january: null,
+    february: null,
+    march: null,
+    april: null,
+    may: null,
+    june: null,
+    july: null,
+    august: null,
+    september: null,
+    october: null,
+    november: null,
+    december: null,
+  },
 };
 
 function Login() {
@@ -30,10 +32,12 @@ function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
+  }
+
+  function login() {
     addUserToDatabase();
     localStorage.setItem("userPhoneNumber", phoneNumber);
     setPhoneNumber("");
-    navigate("/home");
   }
 
   async function addUserToDatabase() {
@@ -41,8 +45,10 @@ function Login() {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       console.log("user exists.");
+      navigate("/home");
     } else {
       await setDoc(doc(database, "users", phoneNumber), init_goal);
+      navigate("/welcome");
     }
   }
 
@@ -51,14 +57,16 @@ function Login() {
       <div className="login-container">
         <h1>NewYearNewToken!</h1>
         <form onSubmit={handleSubmit}>
-          <label>Enter your phone number to continue</label>
           <input
             type="text"
             value={phoneNumber}
             onChange={handleInputChange}
-            placeholder=""
+            placeholder="Enter your phone number"
           />
         </form>
+        <button className="continue-button" onClick={login}>
+          Continue
+        </button>
       </div>
     </div>
   );
