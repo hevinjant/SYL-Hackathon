@@ -22,6 +22,10 @@
   border-radius: 20px;
 }
 
+.login .login-container h1 {
+  color: white;
+}
+
 .login .login-container form {
   display: flex;
   flex-direction: column;

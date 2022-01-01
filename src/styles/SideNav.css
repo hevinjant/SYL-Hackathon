@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   height: 100%;
+  width: 100px;
 }
 
 .side-nav .links {

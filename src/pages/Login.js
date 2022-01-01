@@ -49,6 +49,7 @@ function Login() {
   return (
     <div className="login" style={{ backgroundImage: `url(${FireworksBg})` }}>
       <div className="login-container">
+        <h1>NewYearNewToken!</h1>
         <form onSubmit={handleSubmit}>
           <label>Enter your phone number to continue</label>
           <input

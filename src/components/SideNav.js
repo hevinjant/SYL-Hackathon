@@ -7,7 +7,6 @@ function SideNav() {
     <div className="side-nav">
       <div className="links">
         <Link to="/home">Home</Link>
-        <Link to="/completed">Completed</Link>
         <Link to="/about">About</Link>
       </div>
     </div>
