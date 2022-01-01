@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SideNav from "../components/SideNav";
 import MonthItem from "../components/MonthItem";
+import Balance from "../components/Balance";
 import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import database from "../Firebase";
 import "../styles/Home.css";
@@ -81,6 +82,7 @@ function Home() {
       doc(database, "users", userPhoneNumber),
       (doc) => {
         const source = doc.metadata.hasPendingWrites ? "Local" : "Server";
+        console.log("listened:", doc.data());
         setGoals(doc.data());
       }
     );
@@ -106,6 +108,9 @@ function Home() {
     <div className="home">
       <div className="home-left">
         <SideNav />
+      </div>
+      <div className="home-middle">
+        <Balance />
       </div>
       <div className="home-right">
         <div className="home-right-container">

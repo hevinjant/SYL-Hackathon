@@ -1,0 +1,22 @@
+About NYNT:
+NewYearNewToken is a web application that helps people to complete their new year resolutions.
+As we know that completing new year resolution is important, yet it's so hard.
+The goal is to split one big new year resolution into smaller monthly resolutions so that people
+can complete their new year resolutions little by little. Which will make completing new year resolution
+much easier. 
+We also encourage people to complete their resolution by giving them bonus tokens for each monthly resolution completed.
+To use the app, users just need to provide their phone numbers, and stake some NYNT tokens.
+
+Development process:
+We build the front-end of the web application using React JavaScript.
+We are using Firebase Firestorm to store and manage our data as we think that Firebase
+is very user friendly. Firebase has a very straight forward and easy to use API to be used with React JavaScript.
+We achieve realtime updates on our data by using Firebase realtime document listener, onSnapshot().
+
+In this hackathon, we have the opportunity to learn about a new technology, which is Solidity.
+Solidity enables us to create and deploy our NYNT token and its smart contract. 
+Then, we use Web3-react library to connect our application to our NYNT smart contracts and MetaMask crypto wallet.
+
+Another new technology that we learn is Twilio API. We are using Twilio API to send our
+users reminders to complete their monthly resolutions. We choose Twilio because its API is
+easy to use and has been used by many developers.

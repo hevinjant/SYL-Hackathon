@@ -4,7 +4,13 @@
 }
 
 .home-left {
-  width: 400px;
+  width: 115px;
+}
+
+.home-middle {
+  background-color: white;
+  width: 500px;
+  border-right: 1px solid var(--darker-blue);
 }
 
 .home-right {
@@ -29,6 +35,10 @@
 @media only screen and (max-width: 1300px) {
   .home-right-container {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .home-middle {
+    display: none;
   }
 }
 

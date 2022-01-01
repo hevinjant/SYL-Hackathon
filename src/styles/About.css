@@ -12,11 +12,11 @@
   align-items: center;
   color: var(--medium-gray);
   width: 100%;
-  min-width: 600px;
+  min-width: 700px;
 }
 
 .about-container .header {
-  font-size: clamp(20px, 1.2vw, 25px);
+  font-size: clamp(15px, 1.2vw, 25px);
   letter-spacing: 1px;
   padding-bottom: 5px;
   border-bottom: 1px solid var(--darker-blue);

@@ -15,8 +15,8 @@ function About() {
           the resolution is too big to complete.
           <br /> With NewYearNewToken, we help you to split up your one big new
           year resolution into smaller resolutions that you can achieve each
-          month. And as the name suggests, you can get tokens by completing your
-          new year resolutions!
+          month. And as the name suggests, you get tokens by completing your new
+          year resolutions!
         </p>
         <p className="header">How does it work?</p>
         <p className="body">
