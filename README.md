@@ -1,4 +1,5 @@
 Link to our app: https://newyearnewtoken.firebaseapp.com/
+Video presentation: https://youtu.be/yUVvzH9lwwE
 
 FEATURES: Firebase, Google Cloud, Twilio, Ethereum BlockChain
 
