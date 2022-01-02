@@ -1,4 +1,6 @@
-FEATURES: Firebase, Twilio, Ethereum Smart Contract
+Link to our app: https://newyearnewtoken.firebaseapp.com/
+
+FEATURES: Firebase, Google Cloud, Twilio, Ethereum BlockChain
 
 NewYearNewToken is a web application that helps people complete their new year resolutions.
 As we know that completing new year resolution is important, yet it's so hard.
