@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+FEATURES: Firebase, Twilio, Ethereum Smart Contract
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NewYearNewToken is a web application that helps people complete their new year resolutions.
+As we know that completing new year resolution is important, yet it's so hard.
+The goal is to split one big new year resolution into smaller monthly resolutions so that people
+can complete their new year resolutions little by little. Which will make completing new year resolution
+much easier.
+To do this, we implement blockchain technology to create our own token and smart contract that rewards people when they complete their monthly goal.
+To use the app, user needs a Metamask wallet to store the token and a phone number so we can send them motivating reminders via text message.
 
-## Available Scripts
+Development process:
+We build the front-end of the web application using React.
+We are using Firebase Firestorm to store and manage our data as we think that Firebase
+is very user friendly. Firebase has a very straight forward and easy to use API to be used with React JavaScript.
+We achieve realtime updates on our data by using Firebase realtime document listener, onSnapshot().
 
-In the project directory, you can run:
+In this hackathon, we are very proud to have learned a lot of new technologies; the first one is Solidity.
+We had no prior experience working with blockchain, so it was a very exciting challenge.
+Solidity is the language that enables us to create and deploy our NYNT token and its smart contract.
+Then, we use Web3-react library to connect our application to our NYNT smart contracts and MetaMask crypto wallet.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Another new technology that we learn is Twilio API. We are using Twilio API to send our
+users reminders to complete their monthly resolutions. We choose Twilio because its API is
+easy to use and has been used by many developers.

@@ -33,7 +33,7 @@ function Login() {
 
   // useEffect(() => {
   //   //mint(100);
-  //   stake(10);
+  //   stake(1000);
   // }, []);
 
   function handleInputChange(event) {

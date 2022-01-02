@@ -3,7 +3,7 @@ import Form from "./Form";
 import { useState, useEffect } from "react";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import database from "../Firebase";
-import { getBalance, mint } from "../Web3";
+import { getBalance, mint, completeTask } from "../Web3";
 import "../styles/MonthItem.css";
 
 function MonthItem({ monthName, monthImg, monthGoal }) {
@@ -53,7 +53,10 @@ function MonthItem({ monthName, monthImg, monthGoal }) {
       { balance: balance + balance * 0.05 },
       { merge: true }
     );
-    mint(balance * 0.05 * 100);
+    const reward = parseInt(balance * 0.05 * 100);
+    console.log("reward: ", reward);
+    mint(reward);
+    //completeTask();
   }
 
   async function setGoalToCompleted() {

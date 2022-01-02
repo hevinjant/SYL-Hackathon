@@ -38,7 +38,7 @@ export function mint(amount) {
       //   .call();
       // console.log("NYNT Balance:", NYNTBalance);
       await NYNTContract.methods
-        .mint(defaultUser, 100 / 10 ** 2)
+        .mint(defaultUser, amount)
         .send({ from: defaultUser });
     }
   }
@@ -64,4 +64,25 @@ export function stake(amount) {
     }
   }
   _stake();
+}
+
+export function completeTask() {
+  async function _completeTask() {
+    if (window.web3) {
+      const web3 = new Web3(window.web3.currentProvider);
+      const defaultUser = (await web3.eth.getAccounts())[0];
+      // console.log("USER:", defaultUser);
+      // const balance = await web3.eth.getBalance(defaultUser);
+      // console.log("ETH BALANCE:", balance / 10 ** 18);
+      const StakingContract = new web3.eth.Contract(
+        NYNTStakingABI,
+        NYNTStakingAddress
+      );
+      console.log("StakingContract:", StakingContract);
+      await StakingContract.methods
+        .completeTask(defaultUser, 1)
+        .send({ from: defaultUser });
+    }
+  }
+  _completeTask();
 }
