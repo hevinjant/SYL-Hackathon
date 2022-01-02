@@ -27,6 +27,7 @@ function About() {
         <p className="header">Development</p>
         <p className="body">
           Front-end: React JavaScript <br />
+          Back-end: Python Flask <br />
           Database: Firebase Firestore <br />
           Using Solidity to create and deploy the NYNT token and smart contract.{" "}
           <br />
