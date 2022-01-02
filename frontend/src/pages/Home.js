@@ -115,15 +115,12 @@ function Home() {
       <div className="home-left">
         <SideNav />
       </div>
-      <div className="home-middle">
-        <Balance />
-      </div>
+      <div className="home-middle"></div>
       <div className="home-right">
         <div className="home-right-container">
           {months.map((month, key) => {
             const monthName = month.name.toLowerCase();
             var monthGoal;
-            console.log("GOALS", goals);
             if (goals == null || Object.keys(goals).length === 0) {
               monthGoal = {};
             } else {

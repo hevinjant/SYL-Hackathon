@@ -9,6 +9,19 @@ function Balance() {
 
   useEffect(() => {
     fetchBalance();
+
+    const unsubscribe = onSnapshot(
+      doc(database, "users", userPhoneNumber),
+      (doc) => {
+        const source = doc.metadata.hasPendingWrites ? "Local" : "Server";
+        console.log("listened:", doc.data());
+        setBalance(doc.data().balance);
+      }
+    );
+
+    return () => {
+      unsubscribe();
+    };
   });
 
   function handleClick() {}

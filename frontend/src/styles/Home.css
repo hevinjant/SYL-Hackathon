@@ -11,6 +11,7 @@
   background-color: white;
   width: 500px;
   border-right: 1px solid var(--darker-blue);
+  display: none;
 }
 
 .home-right {

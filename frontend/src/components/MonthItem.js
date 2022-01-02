@@ -3,6 +3,7 @@ import Form from "./Form";
 import { useState, useEffect } from "react";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import database from "../Firebase";
+import { getBalance, mint } from "../Web3";
 import "../styles/MonthItem.css";
 
 function MonthItem({ monthName, monthImg, monthGoal }) {
@@ -39,6 +40,20 @@ function MonthItem({ monthName, monthImg, monthGoal }) {
 
   function handleClick() {
     setGoalToCompleted();
+    giveReward();
+  }
+
+  async function giveReward() {
+    const docRef = doc(database, "users", userPhoneNumber);
+    const docSnap = await getDoc(docRef);
+    const balance = docSnap.data().balance;
+    console.log("BALANCE", balance);
+    setDoc(
+      doc(database, "users", userPhoneNumber),
+      { balance: balance + balance * 0.05 },
+      { merge: true }
+    );
+    mint(balance * 0.05 * 100);
   }
 
   async function setGoalToCompleted() {

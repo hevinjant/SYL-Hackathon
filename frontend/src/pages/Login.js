@@ -3,9 +3,12 @@ import FireworksBg from "../assets/fireworks2.jpg";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import database from "../Firebase";
 import { useNavigate } from "react-router-dom";
-import { getBalance, NYNTAbi, NYNTAddress } from "../Web3";
-import Web3 from "web3";
+import { getBalance, stake } from "../Web3";
+//import Web3 from "web3";
 import "../styles/Login.css";
+
+// const NYNTAbi = require("../NYNTAbi.json");
+// const NYNTContractAddress = "0x0F4C21CF12826B32dd0980d2a273FF8fb2688920";
 
 const init_goal = {
   goals: {
@@ -28,26 +31,10 @@ function Login() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    async function _getBalance() {
-      if (window.web3) {
-        const web3 = new Web3(window.web3.currentProvider);
-        const defaultUser = (await web3.eth.getAccounts())[0];
-        console.log("USER:", defaultUser);
-        const balance = await web3.eth.getBalance(defaultUser);
-        console.log("ETH BALANCE:", balance);
-        const NYNTContract = new web3.eth.Contract(NYNTAbi, NYNTAddress);
-        // await NYNTContract.methods
-        //   .mint(defaultUser, balance * 0.05 * 100)
-        //   .send();
-        const NYNTBalance = await NYNTContract.methods
-          .balanceOf(defaultUser)
-          .call();
-        console.log("NYNT Balance:", NYNTBalance);
-      }
-    }
-    _getBalance();
-  }, []);
+  // useEffect(() => {
+  //   //mint(100);
+  //   stake(10);
+  // }, []);
 
   function handleInputChange(event) {
     setPhoneNumber(event.target.value);
@@ -68,11 +55,21 @@ function Login() {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       console.log("user exists.");
+      updateBalance();
       navigate("/home");
     } else {
       await setDoc(doc(database, "users", phoneNumber), init_goal);
       navigate("/welcome");
     }
+  }
+
+  async function updateBalance() {
+    const currentNYNTBalance = await getBalance();
+    setDoc(
+      doc(database, "users", phoneNumber),
+      { balance: currentNYNTBalance / 10 ** 2 },
+      { merge: true }
+    );
   }
 
   return (
