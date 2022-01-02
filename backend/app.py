@@ -27,14 +27,11 @@ twilio_client = Client(account_sid, auth_token)
 
 @app.route("/send-reminder", methods=['POST'])
 def connect_twilio():
-    try:
-        body = request.json
-        phone_number = body.get('phone_number', '')
-
-        if phone_number == '':
-            return "Please specify a phone_number", 400
-    except Exception:
-        return "You probably forgot to specify a phone number. If you do but the error persists, ask Irenna :)", 500
+    phone_numbers = list()
+    docs = db.collection(u'users').stream()
+    print(docs)
+    for doc in docs:
+        phone_numbers.append(doc.id)
 
     currentMonth = datetime.now().month
     int_to_month = {
@@ -52,11 +49,12 @@ def connect_twilio():
         12: "December"
     }
 
-    twilio_client.messages.create(
-        body=f"Hi there! {int_to_month[currentMonth]} had just begun. Don't forget to work on your monthly resolution!",
-        from_=twilio_cell,
-        to=phone_number,
-    )
+    for phone_number in phone_numbers:
+        twilio_client.messages.create(
+            body=f"Hi there! {int_to_month[currentMonth]} had just begun. Don't forget to work on your monthly resolution!",
+            from_=twilio_cell,
+            to=phone_number,
+        )
     return "Message sent", 200
 
 if __name__ == '__main__':
