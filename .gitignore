@@ -24,3 +24,4 @@ yarn-error.log*
 
 # virtual env
 venv
+backend/env
