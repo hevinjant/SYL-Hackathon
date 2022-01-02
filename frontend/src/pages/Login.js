@@ -3,6 +3,8 @@ import FireworksBg from "../assets/fireworks2.jpg";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import database from "../Firebase";
 import { useNavigate } from "react-router-dom";
+import { getBalance, NYNTAbi, NYNTAddress } from "../Web3";
+import Web3 from "web3";
 import "../styles/Login.css";
 
 const init_goal = {
@@ -25,6 +27,27 @@ const init_goal = {
 function Login() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    async function _getBalance() {
+      if (window.web3) {
+        const web3 = new Web3(window.web3.currentProvider);
+        const defaultUser = (await web3.eth.getAccounts())[0];
+        console.log("USER:", defaultUser);
+        const balance = await web3.eth.getBalance(defaultUser);
+        console.log("ETH BALANCE:", balance);
+        const NYNTContract = new web3.eth.Contract(NYNTAbi, NYNTAddress);
+        // await NYNTContract.methods
+        //   .mint(defaultUser, balance * 0.05 * 100)
+        //   .send();
+        const NYNTBalance = await NYNTContract.methods
+          .balanceOf(defaultUser)
+          .call();
+        console.log("NYNT Balance:", NYNTBalance);
+      }
+    }
+    _getBalance();
+  }, []);
 
   function handleInputChange(event) {
     setPhoneNumber(event.target.value);
